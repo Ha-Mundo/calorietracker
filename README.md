@@ -3,9 +3,9 @@ Application to track the daily food calorie, made with python, sqlalchemy and sq
 
 1- Create a virtual enviroment: python -m venv env
 
-2- install all the dependencies and packages: pip install requirements.txt
+2- Install all the dependencies and packages: pip install requirements.txt
 
-3- open the python shell: 1) python
+3- Open the python shell: 1) python
 
                           2) from foodtraker import create_app
                           
