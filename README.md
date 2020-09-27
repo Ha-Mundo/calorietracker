@@ -11,5 +11,6 @@ Application to track the daily food calorie, made with python, sqlalchemy and sq
                           4) db.create_all(app=create_app())
                           5) exit()
 
+
 4) flask run
 
