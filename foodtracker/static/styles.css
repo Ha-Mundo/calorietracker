@@ -23,14 +23,14 @@ body {
 }
 #homeJumbo h1 {
 	font-size: 30px;
-	color: white;
+	color: #e95420;
 	font-family: 'Oswald';
 	text-align: center;
 	padding-top: 20px;
 	font-weight: bolder;
 }
 #homeJumbo h1 > a {
-	color: white;
+	color: #e95420;
 	text-decoration: none;
 }
 

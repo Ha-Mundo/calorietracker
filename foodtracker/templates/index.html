@@ -54,7 +54,7 @@
 								<div class="form-group">
 									<label><i class="glyphicon glyphicon-plus-sign text-primary"></i> Add New Date</label>
 									<div class="input-group">
-									  <input type="date" class="form-control" name="date" placeholder="Select New Date" aria-label="date" aria-describedby="add-btn">
+									  <input type="date" class="form-control" name="date" placeholder="Select New Date" aria-label="date" aria-describedby="add-btn" required>
 									  <span class="input-group-btn">
 										<button type="submit" class="btn btn-primary" id="add-btn">
 										  <i class="glyphicon glyphicon-plus-sign"></i> Add Date
@@ -93,6 +93,11 @@
 							<li class="list-group-item text-bold"><span class="badge">{{ log_date['fats'] }}</span> Fat</li>
 							<li class="list-group-item text-bold"><span class="badge">{{ log_date['calories'] }}</span> Calories</li>
 						</ul>
+						<div class="panel-body text-bold">
+							<a class="btn btn-primary btn-xs pull-right">
+								Delete <i class="glyphicon glyphicon-trash"></i>
+							</a>
+						</div>
 					</div>
 				</div>
 				{% endfor %}
