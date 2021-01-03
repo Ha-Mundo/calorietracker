@@ -8,14 +8,14 @@ log_food = db.Table('log_food',
 
 class Food(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), unique=True, nullable=False)
+    name = db.Column(db.String(50),  nullable=False)
     proteins = db.Column(db.Integer, nullable=False)
     carbs = db.Column(db.Integer, nullable=False)
     fats = db.Column(db.Integer, nullable=False)
 
     @property
     def calories(self):
-        return self.proteins * 4 + self.carbs * 4 + self.fats * 9
+        return (self.proteins * 4) + (self.carbs * 4) + (self.fats * 9)
 
 class Log(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -7,10 +7,12 @@ Application to track the daily food calorie, made with python, sqlalchemy and sq
 
 3- Open the python shell: 1) python
 
-                          2) from foodtraker import create_app
+                          2) from foodtracker import create_app
                           
                           3) from foodtracker.extensions import db
-                          
+
+                             from foodtracker.models import log_food, Food, Log
+                             
                           4) db.create_all(app=create_app())
                           
                           5) exit()
