@@ -1,2 +1,2 @@
-FLASK_APP=foodtracker
+FLASK_APP=calorietracker
 FLASK_ENV=development

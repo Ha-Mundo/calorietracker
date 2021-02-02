@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 
-from foodtracker.models import Food, Log
-from foodtracker.extensions import db
+from calorietracker.models import Food, Log
+from calorietracker.extensions import db
 
 from datetime import datetime 
 
@@ -46,6 +46,18 @@ def create_log():
 
     return redirect(url_for('main.view', log_id=log.id))
 
+@main.route('/delete_log/<int:log_id>')
+def delete_log(log_id):
+    log = Log.query.get_or_404(log_id)
+    print(log)
+    db.session.delete(log)
+    db.session.commit()
+    
+    return redirect(url_for('main.index', log_id=log.id))
+    
+    
+    
+
 @main.route('/add')
 def add():
     foods = Food.query.all()
@@ -54,12 +66,17 @@ def add():
 
 @main.route('/add', methods=['POST'])
 def add_post():
-    food_name = request.form.get('food-name')
-    proteins = request.form.get('protein')
-    carbs = request.form.get('carbohydrates')
-    fats = request.form.get('fat')
-
+    food_name = request.form.get('food-name').lower()
+    proteins = request.form.get('protein').lower()
+    carbs = request.form.get('carbohydrates').lower()
+    fats = request.form.get('fat').lower()
+    
     food_id = request.form.get('food-id')
+    
+    foods = Food.query.all()
+    counter = db.session.query(Food).filter(Food.name == food_name).count()
+     
+   
 
     if food_id:
         food = Food.query.get_or_404(food_id)
@@ -67,7 +84,11 @@ def add_post():
         food.proteins = proteins
         food.carbs = carbs
         food.fats = fats
-
+        
+    elif counter >=1:
+        flash('This Food Already Exist!', 'info')
+        return redirect(url_for('main.add'))
+        
     else:
         new_food = Food(
             name=food_name,
@@ -120,17 +141,25 @@ def view(log_id):
 
 @main.route('/add_food_to_log/<int:log_id>', methods=['POST'])
 def add_food_to_log(log_id):
-    log = Log.query.get_or_404(log_id)
+    try:
+        log = Log.query.get_or_404(log_id)
+        
+        selected_food = request.form.get('food-select').lower()
+        food = Food.query.get(int(selected_food))
+            
+        log.foods.append(food)
+        db.session.commit()
 
-    selected_food = request.form.get('food-select')
+        return redirect(url_for('main.view', log_id=log_id))
+    
+    except:
+        flash('Only One Type of Food per day Allowed!', 'info')
+        return redirect(url_for('main.view', log_id=log_id))
 
-    food = Food.query.get(int(selected_food))
 
-    log.foods.append(food)
-    db.session.commit()
 
-    return redirect(url_for('main.view', log_id=log_id))
 
+  
 @main.route('/remove_food_from_log/<int:log_id>/<int:food_id>')
 def remove_food_from_log(log_id, food_id):
     log = Log.query.get(log_id)
