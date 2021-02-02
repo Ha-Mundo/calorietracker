@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Food Tracker | Home</title>
+		<title>Calorie Tracker | Home</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu:400,700" rel="stylesheet">
 
@@ -12,12 +12,6 @@
 		<link rel="stylesheet" href="{{ url_for('static', filename='bs/css/united.min.css') }}" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
 
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
 	</head>
 	<body>
 
@@ -34,10 +28,10 @@
 						<div class="col-lg-4 col-lg-offset-4">
 							<ul class="nav nav-pills nav-justified">
 							  <li role="presentation" class="active">
-							  	<a href="{{ url_for('main.index') }}" title="Home">Home</a>
+							  	<a href="{{ url_for('main.index') }}" title="Home">Records</a>
 							  </li>
 							  <li role="presentation">
-							  	<a href="{{ url_for('main.add') }}" title="Add Food Item">Add Food Item</a>
+							  	<a href="{{ url_for('main.add') }}" title="Add Food Item">Food List</a>
 							  </li>
 							</ul>
 						</div>
@@ -51,7 +45,7 @@
 						<div class="panel-body">
 							<form action="{{ url_for('main.create_log') }}" method="POST" role="form">
 							
-								<div class="form-group">
+								<div class="form-group text-center">
 									<label><i class="glyphicon glyphicon-plus-sign text-primary"></i> Add New Date</label>
 									<div class="input-group">
 									  <input type="date" class="form-control" name="date" placeholder="Select New Date" aria-label="date" aria-describedby="add-btn" required>
@@ -94,7 +88,7 @@
 							<li class="list-group-item text-bold"><span class="badge">{{ log_date['calories'] }}</span> Calories</li>
 						</ul>
 						<div class="panel-body text-bold">
-							<a class="btn btn-primary btn-xs pull-right">
+							<a class="btn btn-primary btn-xs pull-right" href="{{ url_for('main.delete_log', log_id=log_date['log_date'].id) }}">
 								Delete <i class="glyphicon glyphicon-trash"></i>
 							</a>
 						</div>

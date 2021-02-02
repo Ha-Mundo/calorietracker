@@ -80,3 +80,8 @@ footer {
 	color: black;
 	margin-bottom: 20px;
 }
+
+.alert-info {margin-top: 1rem;}
+
+.done {margin-left: 1rem;
+	 display: inline;}
