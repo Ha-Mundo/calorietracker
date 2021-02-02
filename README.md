@@ -1,5 +1,4 @@
 
-# here the the 0.1 version: https://kalorie-tracker.herokuapp.com/
 # Calorie Tracker
 Application to track the daily food calorie, made with python, flask-sqlalchemy.
 
@@ -20,4 +19,6 @@ Application to track the daily food calorie, made with python, flask-sqlalchemy.
                           5) exit()
 
 4) flask run
+
+# here the the 0.1 version: https://kalorie-tracker.herokuapp.com/
 
