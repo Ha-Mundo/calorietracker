@@ -1,5 +1,7 @@
-# calorietracker
-Application to track the daily food calorie, made with python, flask-sqlalchemy.
+
+# here the the 0.1 version: https://kalorie-tracker.herokuapp.com/
+# foodtracker
+Application to track the daily food calorie, made with python, sqlalchemy and sqlite.
 
 1- Create a virtual enviroment: python -m venv env
 
