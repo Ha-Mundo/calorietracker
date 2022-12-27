@@ -9,17 +9,17 @@ Application to track the daily food calorie, made with python, flask-sqlalchemy.
 
 3- Open the python shell and run these commads: 
 
-                           `python`
+                           ```python
 
-                           `from calorietracker import create_app`
+                            from calorietracker import create_app
                           
-                           `from calorietracker.extensions import db`
+                            from calorietracker.extensions import db
 
-                           `from calorietracker.models import log_food, Food, Log`
+                            from calorietracker.models import log_food, Food, Log
                              
-                           `db.create_all(app=create_app())`
+                            db.create_all(app=create_app())
                           
-                           `exit()`
+                            exit()```
 
 4) `flask run`
 
