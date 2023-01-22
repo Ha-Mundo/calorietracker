@@ -3,7 +3,7 @@
 
 Application to track the daily food calorie, made with python, flask-sqlalchemy.
 
-1- Create a virtual enviroment: `python -m venv env`
+1- Create a virtual environment: `python -m venv env`
 
 2- Install all the dependencies and packages: `pip install requirements.txt`
 
