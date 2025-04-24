@@ -24,4 +24,5 @@ Application to track the daily food calorie, made with python, flask-sqlalchemy.
 4- `flask run`
 
 ## Here the the 0.1 version: https://calorie-tracker-iudk.onrender.com
+*Please allow a couple of minutes for the app to load due to Render's free tier startup time*
 
